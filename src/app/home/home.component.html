@@ -1,56 +1,34 @@
-<!--<div class="row" style="margin-top:40px; background-color:#eff0f2;-->
-<!-- -webkit-box-shadow: 0px 0px 5px 2px rgba(0,0,0,0.2);-->
-<!-- -moz-box-shadow: 0px 0px 5px 2px rgba(0,0,0,0.2);-->
-<!--box-shadow: 0px 0px 5px 2px rgba(0,0,0,0.2);">-->
-<!--&lt;!&ndash; <div class="col-sm-12" style="text-align:center;">-->
-<!--Register-->
-<!--</div> &ndash;&gt;-->
+<div id='content' class='row-fluid row m-0' style="display: flex" (click)="voiceSearch()">
+  <div class='col-lg-10 main text-center mt-4'>
+    <ul class="nav nav-pills nav-stacked text-left list-group" style="font-size: 20px">
+      <ng-container *ngFor="let label of labels">
+        <li *ngIf="label.messageListVisibility !== 'hide'" style="margin-bottom: 12px"><a href="#"
+                                                                                          [ngClass]="{'text-secondary': label.name !== 'UNREAD'}">{{label.name}}</a>
+        </li>
+      </ng-container>
+    </ul>
+    <form #vSearch id="vSearch">
+      <div id="voicesearch">
+        <input #searchKey name="q" id="searchKey" type="hidden">
+        <div id="icon-mic"></div>
+        <span class="text-muted">{{response}}</span>
+      </div>
+    </form>
+  </div>
 
+  <div class="col-12" style="max-height: 350px;overflow-y: scroll;">
+    <table class="table table-striped ">
+      <tbody>
+      <tr *ngFor="let mail of mails">
+        <th scope="row">{{mail.id}}</th>
+        <td>{{mail.snippet}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
 
-<!--<div class="col-sm-12">-->
-<!--<div class="jumbotron">-->
-<!--<h1 class="display-4">Hello, {{username}}!</h1>-->
-<!--<p class="lead">You have successfully logged in to our system.</p>-->
-<!--<hr class="my-4">-->
-<!--<p>Thanks to bootstrap for making wonderful UI to make development fast.</p>-->
-<!--<p class="lead" style="color:white;">-->
-<!--<a class="btn btn-primary btn-lg" role="button" (click)="logout()">Log Out</a>-->
-<!--</p>-->
-<!--</div>-->
-<!--</div>-->
-<!--</div>-->
-<div id='content' class='row-fluid'>
-    <div class='span2 sidebar col-md-3'>
-        <h3>Left Sidebar</h3>
-        <ul class="nav nav-pills nav-stacked">
-            <li class="active"><a href="#">Inbox</a></li>
-            <li><a href="#">Sent</a></li>
-            <li><a href="#">Draft</a></li>
-            <li><a href="#">Spam</a></li>
-            <li><a href="#">Archived</a></li>
-        </ul>
-    </div>
-    <div class='span8 main'>
-        <h2>Main Content Section</h2>
-        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet
-            dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper
-            suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in
-            vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et
-            accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait
-            nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod
-            mazim placerat facer possim assum.
-        <p>
-
-        <p>Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes
-            demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est etiam processus dynamicus, qui
-            sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum
-            claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo
-            typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.</p>
-    </div>
-    <div class='span2 sidebar'>
-        <h3 *ngIf="user && user.username">{{user.username}}</h3>
-        <ul class="nav nav-tabs nav-stacked">
-            <li><a class="btn btn-link btn-small" role="button" (click)="logout()">Log Out</a></li>
-        </ul>
-    </div>
+  <div class='col-lg-2 sidebar' style="text-align: -webkit-right;position:absolute;right: 0">
+    <h3 *ngIf="user && user.username">{{user.username}}</h3>
+    <a class="btn btn-link btn-small" role="button" (click)="logout()">Log Out</a>
+  </div>
 </div>

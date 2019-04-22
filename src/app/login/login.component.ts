@@ -35,5 +35,13 @@ export class LoginComponent implements OnInit {
       })
     }
   }
+  callGoogle() {
+    console.log('inside call google');
+    this.userService.googleLogin().subscribe(data => {
+      console.log(data);
+    }, error1 => {
+      console.log(error1);
+    });
+  }
 
 }

@@ -20,8 +20,10 @@
     "@angular/platform-browser": "^6.0.3",
     "@angular/platform-browser-dynamic": "^6.0.3",
     "@angular/router": "^6.0.3",
+    "@kamiazya/ngx-speech-recognition": "^0.3.2",
     "core-js": "^2.5.4",
     "rxjs": "^6.0.0",
+    "speak-tts": "^2.0.8",
     "zone.js": "^0.8.26"
   },
   "devDependencies": {

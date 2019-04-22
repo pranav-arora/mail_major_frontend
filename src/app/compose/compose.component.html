@@ -1,0 +1,27 @@
+<div id='content' class='row-fluid row m-0' style="display: flex">
+  <div class='col-lg-10 main text-center mt-4'>
+    <form #vSearch id="vSearch">
+      <div id="voicesearch">
+        <textarea #searchKey name="q" id="searchKey" class="md-textarea form-control" rows="3"></textarea>
+        <div id="icon-mic"></div>
+        <span class="text-muted">{{response}}</span>
+      </div>
+    </form>
+  </div>
+
+  <!--<div class="col-12">-->
+    <!--<table class="table table-striped ">-->
+      <!--<tbody>-->
+      <!--<tr *ngFor="let mail of mails">-->
+        <!--<th scope="row">{{mail.id}}</th>-->
+        <!--<td>{{mail.snippet}}</td>-->
+      <!--</tr>-->
+      <!--</tbody>-->
+    <!--</table>-->
+  <!--</div>-->
+
+  <div class='col-lg-2 sidebar' style="text-align: -webkit-right;">
+    <!--<h3 *ngIf="user && user.username">{{user.username}}</h3>-->
+    <a class="btn btn-link btn-small" role="button" (click)="logout()">Log Out</a>
+  </div>
+</div>
